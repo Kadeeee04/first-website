@@ -22,3 +22,9 @@ button img {
     border-radius: 8px;
     transition: transform 0.2s;
 }
+
+canvas {
+    display: block;
+    margin: 20px auto;
+    border: 3px solid #000;
+}

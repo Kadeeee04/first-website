@@ -5,10 +5,14 @@ const gridSize = 30;
 const tilecount =20;
 
 let snake = [{x: 10, y: 10}]
-let dx = 1;
-let dy = 0;
 let food = {x: 5, y: 5};
 let score = 0;
+let nextmx = 1;
+let nextmy = 0;
+let mx = 1;
+let my = 0;
+let lastmx = 1;
+let lastmy = 0;
 
 // drawing the snake in green //
 function drawSnake() {
@@ -38,9 +42,12 @@ function drawFood() {
 // Moving the snake //
 
 function moveSnake() {
+    mx = nextmx;
+    my = nextmy;
+    
     const head = {
-        x: snake[0].x + dx,
-        y: snake[0].y + dy
+        x: snake[0].x + mx,
+        y: snake[0].y + my
     };
     snake.unshift(head);
     if (head.x === food.x && head.y === food.y) {
@@ -53,6 +60,9 @@ function moveSnake() {
     } else {
         snake.pop();    
         }
+    //remeber last move//
+    lastmx = mx;
+    lastmy = my;
 }
 
 //see the walls//
@@ -67,8 +77,8 @@ function Collision() {
     ) {
         //you died and it resets//
         snake = [{x: 10, y: 10}];
-        dx = 1;
-        dy = 0;
+        mx = 1;
+        my = 0;
         score = 0;
         scoreText.textContent = score;
 
@@ -96,21 +106,24 @@ function gamePlay() {
 
 //contorls //
 document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowUp" || e.key === "w" && dy !== 1) {
-        dx = 0;
-        dy = -1;
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+        e.preventDefault();
     }
-    if (e.key === "ArrowDown" || e.key === "s" && dy !== -1) {
-        dx = 0;
-        dy = 1;
+    if ((e.key === "ArrowUp" || e.key === "w") && lastmy !== 1) {
+        nextmx = 0;
+        nextmy = -1;
     }
-    if (e.key === "ArrowLeft" || e.key === "a" && dx !== 1) {
-        dx = -1;
-        dy = 0;
+    if ((e.key === "ArrowDown" || e.key === "s") && lastmy !== -1) {
+        nextmx = 0;
+        nextmy = 1;
     }
-    if (e.key === "ArrowRight" || e.key === "d" && dx !== -1) {
-        dx = 1;
-        dy = 0;
+    if ((e.key === "ArrowLeft" || e.key === "a") && lastmx !== 1) {
+        nextmx = -1;
+        nextmy = 0;
+    }
+    if ((e.key === "ArrowRight" || e.key === "d") && lastmx !== -1) {
+        nextmx = 1;
+        nextmy = 0;
     }
 });
 
