@@ -5,15 +5,23 @@
         <title>Snake</title>
     <link rel="stylesheet" href="style.css">
     </head>
+    <style>
+        .left-btn {
+            float: left;
+        }
+        .right-btn {
+            float: right;
+        }
+    </style>
     <body>
         <h3 class="text-green-500 text-top">Snake Game!</h3>
         <h3>score: <span id="score">0</span></h3>
         <canvas id="game" width="600" height="600"></canvas>
         <br><br>
-        <button class = "text-top" onclick="location.href= 'index.html'">
+        <button class="left-btn" onclick="location.href= 'index.html'">
             <- Home
         </button>
-
+        <button class="right-btn" onclick="restartGame()">Play again</button>
         <script src="snake.js"></script>
     </body>
 </html>

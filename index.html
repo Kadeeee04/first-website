@@ -6,15 +6,26 @@
 
   <link rel="stylesheet" href="style.css">
   </head>
+  <style>
+    .snake-btn {
+      position: relative;
+      left: -200px;
+      top: 25px;
+      background-color: transparent;
+    }
+  </style>
   <body>
     <h2 class="text-red-500">Hai!</h2>
     <h4 class="text-center">My name is Kade!</h4>
     <p>I heard of hack club from my friend who has helped me alot with everything!
       This is my first time using hack club and coding in html! This is where I will have games I make!
     </p>
-    <button onclick="location.href='snake.html'">
-      Play Game 1
+    <p class="snake-btn">Snake!</p>
+
+    <button class="snake-btn" onclick="location.href='snake.html'">
+      <img src="https://cdn-icons-png.flaticon.com/128/3292/3292221.png" alt="snake"/>
     </button>
+
     <script src="script.js"></script>
   </body>
 </html>

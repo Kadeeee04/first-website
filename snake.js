@@ -7,12 +7,15 @@ const tilecount =20;
 let snake = [{x: 10, y: 10}]
 let food = {x: 5, y: 5};
 let score = 0;
+
 let nextmx = 1;
 let nextmy = 0;
 let mx = 1;
 let my = 0;
 let lastmx = 1;
 let lastmy = 0;
+
+let gameover = false;
 
 // drawing the snake in green //
 function drawSnake() {
@@ -75,18 +78,29 @@ function Collision() {
         head.y < 0 ||
         head.y >= tilecount
     ) {
-        //you died and it resets//
-        snake = [{x: 10, y: 10}];
-        mx = 1;
-        my = 0;
-        score = 0;
-        scoreText.textContent = score;
-
-        food = {
-            x: Math.floor(Math.random() * tilecount),
-            y: Math.floor(Math.random() * tilecount)
-        };
+        gameover = true;
+        if (score < 5) {
+            alert("You died lol! Your score is " + score + ", you suck");
+        }
+        if (score >= 5) {
+            alert("You died! Your score is " + score + ", get better");
+        }
     }
+}
+
+function restartGame() {
+    snake = [{x: 10, y: 10}];
+    food = {
+        x: Math.floor(Math.random() * tilecount),
+        y: Math.floor(Math.random() * tilecount)
+    };
+    score = 0;
+    scoreText.textContent = score;
+    mx = 1;
+    my = 0;
+    nextmx = 1;
+    nextmy = 0;
+    gameover = false;
 }
 
 // drawing food and snake //
@@ -99,6 +113,8 @@ function draw() {
 
 //Game play //
 function gamePlay() {
+    if (gameover) return;
+
     moveSnake();
     Collision();
     draw();
