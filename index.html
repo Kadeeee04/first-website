@@ -7,36 +7,35 @@
   <link rel="stylesheet" href="style.css">
   </head>
 
-  <style>
-    .snake-btn {
-      position: relative;
-      left: -200px;
-      top: 25px;
-      background-color: transparent;
-    }
-    .number-btn {
-      position: relative;
-      left: 200px;
-      top: -200px;
-      background-color: transparent;
-    }
-  </style>
-
   <body>
     <h1> Hai!</h1>
     <h5 class="text-center">My name is Kade!</h5>
     <p>This is my first time using hack club and coding in html!</p>
-
-    <p class="snake-btn"> Snake!</p>
-    <button class="snake-btn" onclick="location.href='snake.html'">
-      <img src="https://cdn-icons-png.flaticon.com/128/3292/3292221.png" alt="snake"/>
-    </button>
     
-    <p class="number-btn"> Number!</p>
-    <button class="number-btn" onclick="location.href='number.html'">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/61BRwWBPKfL.png" alt="number"/>
-    </button>
-
     <script src="script.js"></script>
+
+    <div class="game_menu">
+
+      <div class="game_card">
+        <button onclick="location.href='snake.html'">
+          <img src="https://cdn-icons-png.flaticon.com/128/3292/3292221.png" alt="snake"/>
+        </button>
+        <p> Snake! </p>
+      </div>
+
+      <div class="game_card">
+        <button onclick="location.href='number.html'">
+          <img src="https://images-na.ssl-images-amazon.com/images/I/61BRwWBPKfL.png" alt="number"/>
+        </button>
+        <p> Guess the Number!</p>
+      </div>
+
+      <div class="game_card">
+        <button onclick="location.href='about-me.html'">
+          <img src="pointing_me.png" alt="about me"/>
+      </button>
+      <p> About Me!</p>
+      </div>
+    </div>
   </body>
 </html>

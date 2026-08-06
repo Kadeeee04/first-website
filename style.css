@@ -28,3 +28,33 @@ canvas {
     margin: 20px auto;
     border: 3px solid #000;
 }
+
+.game_menu {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.game_card {
+    text-align: center;
+}
+
+.game_card button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.game_card img {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.game_card img:hover {
+    transform: scale(1.05);
+}
